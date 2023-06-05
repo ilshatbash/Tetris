@@ -5,3 +5,7 @@
 /.vs/ProjectEvaluation
 /.vs/Tetris/DesignTimeBuild
 /.vs
+/Collections/.gitignore
+/Enums/.gitignore
+/OOP/.gitignore
+/Randomizer/.gitignore
