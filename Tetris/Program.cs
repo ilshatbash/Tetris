@@ -15,12 +15,12 @@ namespace Tetris
 
             while (true)
             {
-                FigureFall(s, generator);
+                FigureFall(out s, generator);
                 s.Draw();
             }
         }
 
-        static void FigureFall(Figure fig, FigureGenerator generator)
+        static void FigureFall(out Figure fig, FigureGenerator generator)
         {
             fig = generator.GetNewFigure();
             fig.Draw();
