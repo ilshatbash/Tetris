@@ -1,19 +1,7 @@
-﻿################################################################################
-# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
-################################################################################
-
-/bin/Debug/net5.0
+/bin/
+/obj/
+/Tetris/obj
+/Tetris/bin/Debug/netcoreapp3.0
 /.vs/ProjectEvaluation
-/.vs/Tetris
-/obj/Debug/net5.0/ref
-/obj/Debug/net5.0/refint
-/obj/Debug/net5.0
-/obj
+/.vs/Tetris/DesignTimeBuild
 /.vs
-/Collections/.vs/Collections
-/Collections/bin/Debug/net5.0
-/Collections/obj/Debug/net5.0
-/Collections/obj
-/Enums/.vs
-/Enums/bin/Debug/net5.0
-/Enums/obj
