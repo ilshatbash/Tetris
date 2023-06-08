@@ -14,6 +14,7 @@ namespace Tetris
         {
             Console.SetCursorPosition(x, y);
             Console.Write(c);
+            Console.SetCursorPosition(0, 0);
         }
 
         public Point(int a, int b, char sym)
@@ -22,6 +23,15 @@ namespace Tetris
             y = b;
             c = sym;
         }
+       
+        public Point(Point p)
+        {
+            x= p.x;
+            y= p.y;
+            c = p.c;
+
+        }
+        public Point() { }
 
         internal void Move(Direction dir)
         {
@@ -45,7 +55,6 @@ namespace Tetris
             Console.Write(" ");
         }
 
-        public Point() { }
-
+        
     }
 }
