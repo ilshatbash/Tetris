@@ -4,83 +4,86 @@ using System.Text;
 
 namespace Tetris
 {
-   static class Field
+    static class Field
     {
-        private static int _widht = 20;
+        private static int _width = 20;
         private static int _height = 20;
 
-        public static int Widht
+        public static int Width
         {
             get
             {
-                return _widht;
+                return _width;
             }
             set
             {
-                _widht = value;
-                Console.SetWindowSize(Field._widht, Field.Height);
-                Console.SetBufferSize(Field._widht, Field.Height);
+                _width = value;
+                Console.SetWindowSize(_width, Field.Height);
+                Console.SetBufferSize(_width, Field.Height);
             }
         }
         public static int Height
         {
-            get 
+            get
             {
                 return _height;
             }
             set
             {
-                _height= value;
+                _height = value;
                 Console.SetWindowSize(value, Field.Height);
                 Console.SetBufferSize(value, Field.Height);
-
             }
+
         }
+
         private static bool[][] _heap;
+
         static Field()
         {
             _heap = new bool[Height][];
             for (int i = 0; i < Height; i++)
             {
-                _heap[i]= new bool[Widht];
-            } 
+                _heap[i] = new bool[Width];
+            }
         }
+
         public static bool CheckStrike(Point p)
         {
-            return _heap[p.X][p.Y];
+            return _heap[p.Y][p.X];
         }
         public static void AddFigure(Figure fig)
         {
-            foreach (var p in fig.Points ) 
+            foreach (var p in fig.Points)
             {
-                _heap[p.X][ p.Y] = true;
+                _heap[p.Y][p.X] = true;
             }
         }
 
         public static void TryDeleteLines()
         {
-            for (int j = 0; j < Height; j++) 
+            for (int j = 0; j < Height; j++)
             {
                 int counter = 0;
-                for (int i = 0;i<Widht; i++)
+
+                for (int i = 0; i < Width; i++)
                 {
                     if (_heap[j][i])
                         counter++;
                 }
-                if (counter == Widht)
+                if (counter == Width)
                 {
                     DeleteLine(j);
                     Redraw();
                 }
             }
-            
         }
 
         private static void Redraw()
         {
-            for(int j = 0; j < Height; j++)
+            for (int j = 0; j < Height; j++)
             {
-                for(int i=0; i<Widht; i++)
+                for (int i = 0; i < Width; i++)
                 {
                     if (_heap[j][i])
                         Drawer.DrawPoint(i, j);
@@ -92,17 +95,18 @@ namespace Tetris
 
         private static void DeleteLine(int line)
         {
-            for(int j = line; j >=0; j--)
+            for (int j = line; j >= 0; j--)
             {
-                for(int i  = 0; i < Widht; i++)
+                for (int i = 0; i < Width; i++)
                 {
                     if (j == 0)
                         _heap[j][i] = false;
                     else
-                        _heap[j][i] = _heap[j-1][i];
-
+                        _heap[j][i] = _heap[j - 1][i];
                 }
             }
         }
+
+
     }
 }
