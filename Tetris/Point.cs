@@ -17,21 +17,18 @@ namespace Tetris
             Console.SetCursorPosition(0, 0);
         }
 
+        public Point(Point p)
+        {
+            X = p.X;
+            Y = p.Y;
+            C = p.C;
+        }
         public Point(int a, int b, char sym)
         {
             X = a;
             Y = b;
             C = sym;
         }
-       
-        public Point(Point p)
-        {
-            X= p.X;
-            Y= p.Y;
-            C = p.C;
-
-        }
-        public Point() { }
 
         internal void Move(Direction dir)
         {
@@ -46,6 +43,9 @@ namespace Tetris
                 case Direction.RIGHT:
                     X += 1;
                     break;
+                case Direction.UP:
+                    Y -= 1;
+                    break;
             }
         }
 
@@ -55,6 +55,7 @@ namespace Tetris
             Console.Write(" ");
         }
 
-        
+        public Point() { }
+
     }
 }
